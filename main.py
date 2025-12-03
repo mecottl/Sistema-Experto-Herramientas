@@ -6,14 +6,23 @@ import shutil
 from PIL import Image, ImageTk 
 
 # ==========================================
-# 1. CONFIGURACIÓN Y MAPEOS
+# 1. CONFIGURACIÓN Y COLORES
 # ==========================================
 
 NOMBRE_ARCHIVO_HECHOS = "base_hechos.json"
 CARPETA_IMG = "imagenes"
 
-# Traducción de los Botones (A, B, C) a Valores Internos
-# IMPORTANTE: Esto asegura que el código (ej: AAAA) coincida con la lógica
+COLOR_FONDO = "#F4F6F7"       
+COLOR_PRIMARIO = "#2C3E50"    
+COLOR_SECUNDARIO = "#3498DB"  
+COLOR_SECUNDARIO_HOVER = "#2980B9"
+COLOR_EXITO = "#27AE60"       
+COLOR_TEXTO = "#34495E"       
+FUENTE_TITULO = ("Segoe UI", 24, "bold") 
+FUENTE_NORMAL = ("Segoe UI", 11)
+FUENTE_BOTON = ("Segoe UI", 11, "bold")
+
+# Mapeos Lógicos
 MAPAS = {
     0: {"A": "carpinteria", "B": "electricidad", "C": "mecanica", "D": "pintura_albanileria"},
     1: {"A": "manual_portatil", "B": "portatil_motorizada", "C": "estacionaria"},
@@ -21,48 +30,67 @@ MAPAS = {
     3: {"A": "madera", "B": "metal", "C": "multiuso"}
 }
 
-# Texto que ve el usuario en los botones
 BASE_CONOCIMIENTOS = {
     0: {
-        "pregunta": "¿Cuál es el uso de la herramienta?",
-        "opciones": {"A": "A) Carpintería", "B": "B) Electricidad", "C": "C) Mecánica", "D": "D) Pintura / Albañilería"}
+        "pregunta": "¿Cuál es el uso principal de la herramienta?",
+        "opciones": {"A": "Carpintería", "B": "Electricidad", "C": "Mecánica", "D": "Pintura / Albañilería"}
     },
     1: {
         "pregunta": "¿Cuál es la movilidad de la herramienta?",
-        "opciones": {"A": "A)Manual portátil", "B": "B) Portátil motorizada", "C": "C) Estacionaria"}
+        "opciones": {"A": "Manual portátil", "B": "Portátil motorizada", "C": "Estacionaria"}
     },
     2: {
         "pregunta": "¿Qué tipo de acción ejecuta la herramienta?",
-        "opciones": {"A": "A) Precisión", "B": "B) Fuerza", "C": "C) Medición"}
+        "opciones": {"A": "Precisión", "B": "Fuerza", "C": "Medición"}
     },
     3: {
         "pregunta": "¿Con qué material se usa la herramienta?",
-        "opciones": {"A": "A) Madera", "B": "B) Metal", "C": "C) Multiuso"}
+        "opciones": {"A": "Madera", "B": "Metal", "C": "Multiuso"}
     }
 }
+
+# Base inicial (Nombres usados como ID directamente)
+BASE_HECHOS_INICIAL = [
+     {
+        "id": "Martillo", "nombre": "Martillo",
+        "uso": "carpinteria", "movilidad": "manual_portatil", "accion": "precision", "material": "madera",
+        "explicacion": "Se recomienda para trabajos de carpintería manual que requieren precisión. Código: AAAA",
+        "imagen": "Martillo.png"
+    }
+]
 
 class SistemaExpertoApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Sistema Experto: Herramientas")
-        self.root.geometry("950x750")
+        self.root.title("BOB: Sistema experto en herramientas")
+        self.root.geometry("1000x800")
+        self.root.configure(bg=COLOR_FONDO)
         
-        if not os.path.exists(CARPETA_IMG):
-            os.makedirs(CARPETA_IMG)
+        if not os.path.exists(CARPETA_IMG): os.makedirs(CARPETA_IMG)
 
         self.base_hechos = self.cargar_base_hechos()
         self.respuestas_usuario = [] 
-        
-        style = ttk.Style()
-        style.configure("TLabel", font=("Segoe UI", 11))
-        style.configure("TButton", font=("Segoe UI", 10))
-        style.configure("Header.TLabel", font=("Segoe UI", 16, "bold"))
 
-        self.crear_interfaz_principal()
+        style = ttk.Style()
+        style.theme_use('clam') 
+
+        style.configure("Main.TFrame", background=COLOR_FONDO)
+        style.configure("Header.TLabel", background=COLOR_FONDO, foreground=COLOR_PRIMARIO, font=FUENTE_TITULO)
+        style.configure("SubHeader.TLabel", background=COLOR_FONDO, foreground=COLOR_TEXTO, font=("Segoe UI", 14))
+        style.configure("Body.TLabel", background=COLOR_FONDO, foreground=COLOR_TEXTO, font=FUENTE_NORMAL)
+        
+        style.configure("Primary.TButton", font=FUENTE_BOTON, background=COLOR_SECUNDARIO, foreground="white", borderwidth=0)
+        style.map("Primary.TButton", background=[('active', COLOR_SECUNDARIO_HOVER)])
+
+        style.configure("Secondary.TButton", font=FUENTE_NORMAL, background="#BDC3C7", foreground=COLOR_TEXTO, borderwidth=0)
+        style.map("Secondary.TButton", background=[('active', '#95A5A6')])
+
+        style.configure("Option.TButton", font=FUENTE_NORMAL, background="white", foreground=COLOR_PRIMARIO, anchor="center")
+        style.map("Option.TButton", background=[('active', '#ECF0F1')])
+
+        self.mostrar_bienvenida()
 
     def motor_inferencia(self, uso_input, mov_input, acc_input, mat_input):
-        print(f"BUSCANDO: {uso_input} / {mov_input} / {acc_input} / {mat_input}")
-        
         for hecho in self.base_hechos:
             if (hecho["uso"] == uso_input and
                 hecho["movilidad"] == mov_input and
@@ -71,7 +99,6 @@ class SistemaExpertoApp:
                 return hecho
         return None
 
-    # GESTIÓN DE ARCHIVOS
     def cargar_base_hechos(self):
         if os.path.exists(NOMBRE_ARCHIVO_HECHOS):
             try:
@@ -87,350 +114,316 @@ class SistemaExpertoApp:
         with open(NOMBRE_ARCHIVO_HECHOS, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
-    # INTERFAZ GRÁFICA
     def limpiar_ventana(self):
         for widget in self.root.winfo_children():
             widget.destroy()
 
-    def crear_interfaz_principal(self):
+    def mostrar_bienvenida(self):
         self.limpiar_ventana()
-        # Ajusté un poco el padding general para dar espacio a la imagen
-        frame = ttk.Frame(self.root, padding="30")
-        frame.pack(expand=True, fill="both")
+        frame = ttk.Frame(self.root, style="Main.TFrame")
+        frame.pack(expand=True, fill="both", padx=50, pady=50)
 
-        # --- NUEVO: SECCIÓN DE IMAGEN BANNER ---
-        ruta_banner = os.path.join(CARPETA_IMG, "Herramientas.png")
+        self.mostrar_imagen(frame, "Herramientas.png", size=(500, 300))
+
+        ttk.Label(frame, text="Bienvenido a BOB, tu ayudante en construcción", style="Header.TLabel").pack(pady=(30, 10))
+        ttk.Label(frame, text="Sistema inteligente para la selección de herramientas.", style="SubHeader.TLabel").pack(pady=5)
+
+        btn_start = ttk.Button(frame, text="COMENZAR", style="Primary.TButton", command=self.crear_menu_principal, cursor="hand2")
+        btn_start.pack(pady=40, ipadx=30, ipady=12)
+
+    def crear_menu_principal(self):
+        self.limpiar_ventana()
+        frame = ttk.Frame(self.root, style="Main.TFrame")
+        frame.pack(expand=True, fill="both", padx=40, pady=40)
+
+        header_frame = ttk.Frame(frame, style="Main.TFrame")
+        header_frame.pack(pady=(0, 40), anchor="center")
         
-        # Verificamos si la imagen existe antes de intentar cargarla
-        if os.path.exists(ruta_banner):
-            try:
-                pil_img = Image.open(ruta_banner)
-                
-                # --- Redimensionado Proporcional ---
-                # Definimos un ancho objetivo (ej. 450px) y calculamos la altura para no deformarla
-                target_width = 200
-                width_percent = (target_width / float(pil_img.size[0]))
-                target_height = int((float(pil_img.size[1]) * float(width_percent)))
-                # Redimensionar usando LANCZOS para buena calidad
-                pil_img = pil_img.resize((target_width, target_height), Image.Resampling.LANCZOS)
+        self.mostrar_imagen(header_frame, "Herramientas.png", size=(150, 150)) 
+        
+        lbl_title = ttk.Label(header_frame, text="Menú Principal", style="Header.TLabel")
+        lbl_title.pack(pady=(10, 0))
 
-                # Convertir a formato Tkinter
-                tk_img = ImageTk.PhotoImage(pil_img)
-                
-                # ¡IMPORTANTE! Guardar una referencia para evitar que el recolector de basura la borre
-                frame.banner_ref = tk_img
+        menu_frame = ttk.Frame(frame, style="Main.TFrame")
+        menu_frame.pack(expand=True)
 
-                # Crear etiqueta para la imagen y mostrarla
-                img_label = ttk.Label(frame, image=tk_img)
-                # pady=(0, 20) da 0 espacio arriba y 20 abajo (separación del título)
-                img_label.pack(pady=(0, 20))
-                
-            except Exception as e:
-                print(f"Error al cargar la imagen de portada: {e}")
-                # Opcional: mostrar un texto si falla
-                # ttk.Label(frame, text="[Imagen de Portada no disponible]", foreground="gray").pack(pady=(0,20))
-        # ---------------------------------------
+        ttk.Label(menu_frame, text="¿Buscas una herramienta específica?", style="Body.TLabel").pack(pady=(0, 10))
+        btn_consulta = ttk.Button(menu_frame, text="🔍 INICIAR CONSULTA", style="Primary.TButton", command=self.iniciar_consulta)
+        btn_consulta.pack(fill="x", ipadx=50, ipady=15, pady=(0, 40))
 
-        ttk.Label(frame, text="SISTEMA EXPERTO DE RECOMENDACIÓN DE HERRAMIENTAS", style="Header.TLabel").pack(pady=10)
-        ttk.Label(frame, text="Sistema que recomienda las herramientas ideal según el tipo de trabajo y material a utilizar.").pack(pady=5)
+        ttk.Separator(menu_frame, orient='horizontal').pack(fill='x', pady=10)
 
-        btn_frame = ttk.Frame(frame)
-        btn_frame.pack(pady=40)
+        ttk.Label(menu_frame, text="Agregar nuevas herramientas", style="Body.TLabel", foreground="gray").pack(pady=(20, 10))
+        btn_admin = ttk.Button(menu_frame, text="⚙️ Gestionar Sistema experto", style="Secondary.TButton", command=self.abrir_modo_experto)
+        btn_admin.pack(fill="x", ipady=8)
 
-        ttk.Button(btn_frame, text="Iniciar Consulta", command=self.iniciar_consulta, width=25).grid(row=0, column=0, padx=20, ipady=10)
-        ttk.Button(btn_frame, text="Modo Experto ", command=self.abrir_modo_experto, width=25).grid(row=0, column=1, padx=20, ipady=10)
+        ttk.Button(frame, text="Volver al Inicio", command=self.mostrar_bienvenida).pack(side="bottom", pady=20)
+
     def iniciar_consulta(self):
         self.respuestas_usuario = []
         self.mostrar_pregunta(0)
 
-    def mostrar_pregunta(self, indice_pregunta):
+    def mostrar_pregunta(self, indice):
         self.limpiar_ventana()
-        frame = ttk.Frame(self.root, padding="30")
-        frame.pack(expand=True, fill="both")
-        info_pregunta = BASE_CONOCIMIENTOS[indice_pregunta]
-        ttk.Label(frame, text=f"Paso {indice_pregunta + 1} de 4", foreground="#7f8c8d").pack(anchor="w")
-        ttk.Label(frame, text=info_pregunta["pregunta"], style="Header.TLabel").pack(pady=20)
-        for codigo, texto in info_pregunta["opciones"].items():
-            btn = ttk.Button(frame, text=f"{texto}", command=lambda c=codigo: self.procesar_respuesta(c, indice_pregunta))
-            btn.pack(fill="x", pady=8, padx=100, ipady=5)
-        ttk.Button(frame, text="Cancelar Operación", command=self.crear_interfaz_principal).pack(pady=30)
+        frame = ttk.Frame(self.root, style="Main.TFrame")
+        frame.pack(expand=True, fill="both", padx=50, pady=40)
 
-    def procesar_respuesta(self, codigo_respuesta, indice_actual):
-        self.respuestas_usuario.append(codigo_respuesta)
-        if indice_actual < 3:
-            self.mostrar_pregunta(indice_actual + 1)
+        info = BASE_CONOCIMIENTOS[indice]
+
+        ttk.Label(frame, text=f"Paso {indice + 1} de 4", style="SubHeader.TLabel", foreground=COLOR_SECUNDARIO).pack(anchor="w")
+        progress = ttk.Progressbar(frame, value=(indice+1)*25, length=900)
+        progress.pack(pady=(5, 30), fill="x")
+
+        ttk.Label(frame, text=info["pregunta"], style="Header.TLabel", wraplength=800).pack(pady=20)
+
+        opts_frame = ttk.Frame(frame, style="Main.TFrame")
+        opts_frame.pack(fill="both", expand=True)
+
+        for codigo, texto in info["opciones"].items():
+            btn = ttk.Button(opts_frame, text=f"{texto}", style="Option.TButton", 
+                             command=lambda c=codigo: self.procesar_respuesta(c, indice))
+            btn.pack(fill="x", pady=8, ipady=8, padx=100)
+
+        ttk.Button(frame, text="Cancelar", command=self.crear_menu_principal).pack(pady=20)
+
+    def procesar_respuesta(self, codigo, indice):
+        self.respuestas_usuario.append(codigo)
+        if indice < 3:
+            self.mostrar_pregunta(indice + 1)
         else:
             self.mostrar_resultado()
 
     def mostrar_resultado(self):
         self.limpiar_ventana()
-        frame = ttk.Frame(self.root, padding="20")
-        frame.pack(expand=True, fill="both")
+        frame = ttk.Frame(self.root, style="Main.TFrame")
+        frame.pack(expand=True, fill="both", padx=40, pady=20)
 
-        # 1. Obtener valores lógicos de las respuestas
         val_uso = MAPAS[0][self.respuestas_usuario[0]]
         val_mov = MAPAS[1][self.respuestas_usuario[1]]
         val_acc = MAPAS[2][self.respuestas_usuario[2]]
         val_mat = MAPAS[3][self.respuestas_usuario[3]]
 
-        # 2. Ejecutar Motor de Inferencia
         resultado = self.motor_inferencia(val_uso, val_mov, val_acc, val_mat)
 
         if resultado:
-            # --- CASO DE ÉXITO ---
-            ttk.Label(frame, text="Herramienta Recomendada:", foreground="green").pack()
-            nombre_mostrar = resultado.get("nombre", resultado["id"])
-            ttk.Label(frame, text=nombre_mostrar, style="Header.TLabel").pack(pady=10)
+            ttk.Label(frame, text="Herramienta Identificada", style="SubHeader.TLabel", foreground=COLOR_EXITO).pack(pady=(10, 5))
             
-            # Mostrar Imagen
-            self.mostrar_imagen(frame, nombre_mostrar)
-
-            # ==================================================
-            # LÓGICA DE EXPLICACIÓN OCULTA (TOGGLE)
-            # ==================================================
+            nombre_show = resultado["nombre"] 
+            ttk.Label(frame, text=nombre_show, style="Header.TLabel", foreground=COLOR_PRIMARIO).pack(pady=10)
             
-            # Frame contenedor (invisible) para organizar el texto
-            frame_expl = ttk.Frame(frame)
-            frame_expl.pack(pady=10, fill="x")
+            self.mostrar_imagen(frame, resultado.get("imagen", ""), size=(350, 250))
 
-            # El Label con la explicación (NO se empaca todavía, está en memoria)
-            lbl_texto = ttk.Label(frame_expl, text=resultado["explicacion"], 
-                                  wraplength=700, justify="center", 
-                                  background="#f0f0f0", padding=10, relief="solid", borderwidth=1)
+            expl_container = ttk.Frame(frame, style="Main.TFrame")
+            expl_container.pack(pady=20, fill="x")
 
-            # Función interna para mostrar/ocultar
+            lbl_texto = ttk.Label(expl_container, text=resultado["explicacion"], 
+                                  style="Body.TLabel", wraplength=700, justify="center",
+                                  background="white", padding=15, relief="solid", borderwidth=1)
+
             def toggle_explicacion():
-                if lbl_texto.winfo_ismapped(): # ¿Está visible?
-                    lbl_texto.pack_forget()    # Ocultar
+                if lbl_texto.winfo_ismapped():
+                    lbl_texto.pack_forget()
                     btn_toggle.config(text="Ver Explicación Técnica ▼")
-                else:                          # ¿Está oculto?
-                    lbl_texto.pack(pady=5)     # Mostrar
+                else:
+                    lbl_texto.pack(pady=10)
                     btn_toggle.config(text="Ocultar Explicación ▲")
 
-            # Botón interruptor
-            btn_toggle = ttk.Button(frame, text="Ver Explicación Técnica ▼", command=toggle_explicacion)
-            btn_toggle.pack(pady=5)
-            # ==================================================
+            btn_toggle = ttk.Button(expl_container, text="Ver Explicación Técnica ▼", 
+                                    style="Primary.TButton", command=toggle_explicacion)
+            btn_toggle.pack()
 
-            # Botones de Acción
-            btn_area = ttk.Frame(frame)
-            btn_area.pack(pady=20)
-            ttk.Button(btn_area, text="Editar en Modo Experto", command=lambda: self.abrir_modo_experto(datos_editar=resultado)).pack(side="left", padx=10)
-            ttk.Button(btn_area, text="Inicio", command=self.crear_interfaz_principal).pack(side="left", padx=10)
-        
+            btn_frame = ttk.Frame(frame, style="Main.TFrame")
+            btn_frame.pack(pady=20)
+            ttk.Button(btn_frame, text="Editar Herramienta", command=lambda: self.abrir_modo_experto(datos_editar=resultado)).pack(side="left", padx=10)
+            ttk.Button(btn_frame, text="Volver al Menú", command=self.crear_menu_principal).pack(side="left", padx=10)
+
         else:
-            ttk.Label(frame, text="Herramienta No Encontrada", style="Header.TLabel", foreground="#c0392b").pack(pady=20)
+            ttk.Label(frame, text="Herramienta No Encontrada", font=("Segoe UI", 18, "bold"), foreground="#E74C3C", background=COLOR_FONDO).pack(pady=30)
             
-            texto_ctx = f"Camino escogido: {val_uso} > {val_mov} > {val_acc} > {val_mat}"
-            ttk.Label(frame, text=texto_ctx, font=("Consolas", 9)).pack(pady=5)
+            ctx = f"Criterios: {val_uso} > {val_mov} > {val_acc} > {val_mat}"
+            ttk.Label(frame, text=ctx, font=("Consolas", 11), background="#ECF0F1", padding=10).pack(pady=10)
             
-            btn_area = ttk.Frame(frame)
-            btn_area.pack(pady=20)
+            ttk.Label(frame, text="¿Desea agregar esta herramienta al sistema?", style="Body.TLabel").pack(pady=20)
             
-            # Pre-llenar datos para enseñar al sistema
             datos_nuevos = {"uso": val_uso, "movilidad": val_mov, "accion": val_acc, "material": val_mat}
-            
-            ttk.Button(btn_area, text="Agregar al sistema", 
-                       command=lambda: self.abrir_modo_experto(datos_editar=datos_nuevos, es_nuevo=True)).pack(side="left", padx=10)
-            ttk.Button(btn_area, text="Inicio", command=self.crear_interfaz_principal).pack(side="left", padx=10)
-    def mostrar_imagen(self, parent, nombre_herramienta):
-        # Esta función busca la imagen con variaciones de extensión
-        canvas = tk.Canvas(parent, width=300, height=200, bg="#ecf0f1", highlightthickness=0)
-        canvas.pack(pady=10)
+            ttk.Button(frame, text="Sí, Enseñar al Sistema", style="Primary.TButton", 
+                       command=lambda: self.abrir_modo_experto(datos_editar=datos_nuevos, es_nuevo=True)).pack(pady=10)
+            ttk.Button(frame, text="Cancelar", command=self.crear_menu_principal).pack()
 
-        # Buscar archivo exacto o con variaciones
-        nombres_posibles = [
-            nombre_herramienta, # Nombre exacto del JSON
-            nombre_herramienta + ".png",
-            nombre_herramienta + ".jpg",
-            nombre_herramienta + ".jpeg",
-            nombre_herramienta.replace(".png", ".jpg")
-        ]
-        
-        ruta_final = None
-        for n in nombres_posibles:
-            path = os.path.join(CARPETA_IMG, n)
-            if os.path.exists(path):
-                ruta_final = path
-                break
-        
-        if ruta_final:
-            try:
-                pil_img = Image.open(ruta_final)
-                pil_img.thumbnail((300, 200), Image.Resampling.LANCZOS)
-                tk_img = ImageTk.PhotoImage(pil_img)
-                parent.tk_img_ref = tk_img
-                canvas.create_image(150, 100, image=tk_img)
-            except:
-                canvas.create_text(150, 100, text="Error imagen")
-        else:
-            canvas.create_text(150, 100, text=f"Imagen no encontrada:\n{nombre_herramienta}", fill="gray")
-
- # ==========================================
-    # 4. MODO EXPERTO (EDICIÓN Y APRENDIZAJE)
-    # ==========================================
     def abrir_modo_experto(self, datos_editar=None, es_nuevo=False):
         self.limpiar_ventana()
-        frame = ttk.Frame(self.root, padding="20")
-        frame.pack(expand=True, fill="both")
+        frame = ttk.Frame(self.root, style="Main.TFrame")
+        frame.pack(expand=True, fill="both", padx=30, pady=20)
 
-        # Título dinámico
-        titulo = "Adquisición de Conocimiento" if es_nuevo else ("Editor de Hechos" if datos_editar else "Gestor de Base de Hechos")
-        ttk.Label(frame, text=titulo, style="Header.TLabel").pack(pady=10)
+        titulo = "Agregar Nueva Herramienta" if es_nuevo else ("Editor de Herramientas" if datos_editar else "Gestión de Conocimiento")
+        ttk.Label(frame, text=titulo, style="Header.TLabel").pack(pady=(0, 20))
 
-        # Marco para las Reglas (Comboboxes)
-        form_frame = ttk.LabelFrame(frame, text="Definición de Reglas y Atributos", padding="15")
-        form_frame.pack(pady=10, fill="x")
+        content = ttk.Frame(frame, style="Main.TFrame")
+        content.pack(fill="both", expand=True)
 
-        vars_seleccion = []
-        
-        # Recuperar valores actuales si estamos editando
-        valores_actuales = [None]*4
+        left_p = ttk.LabelFrame(content, text=" Reglas Lógicas ", padding=15)
+        left_p.pack(side="left", fill="both", expand=True, padx=10)
+
+        vars_sel = []
+        vals_act = [None]*4
         if datos_editar:
-            valores_actuales[0] = datos_editar.get("uso")
-            valores_actuales[1] = datos_editar.get("movilidad")
-            valores_actuales[2] = datos_editar.get("accion")
-            valores_actuales[3] = datos_editar.get("material")
+            vals_act = [datos_editar.get(k) for k in ["uso", "movilidad", "accion", "material"]]
 
-        # Generar formulario dinámico (4 preguntas)
         for i in range(4):
-            row_f = ttk.Frame(form_frame)
-            row_f.pack(fill="x", pady=5)
-            ttk.Label(row_f, text=BASE_CONOCIMIENTOS[i]["pregunta"], width=45).pack(side="left")
+            f = ttk.Frame(left_p)
+            f.pack(fill="x", pady=10)
+            ttk.Label(f, text=BASE_CONOCIMIENTOS[i]["pregunta"], font=("Segoe UI", 9, "bold")).pack(anchor="w")
             
-            # Crear lista de opciones legibles para el humano (UI)
-            values_ui = []
-            for codigo, texto_ui in BASE_CONOCIMIENTOS[i]["opciones"].items():
-                values_ui.append(texto_ui)
+            vals_ui = list(BASE_CONOCIMIENTOS[i]["opciones"].values())
+            cb = ttk.Combobox(f, values=vals_ui, state="readonly", font=FUENTE_NORMAL)
+            cb.pack(fill="x", pady=2)
+            cb.mapa = MAPAS[i]
             
-            cbox = ttk.Combobox(row_f, values=values_ui, state="readonly", width=30)
-            cbox.pack(side="left")
-            cbox.mapa_interno = MAPAS[i] # Guardamos el mapa para traducción inversa
-            
-            # Pre-seleccionar valor si estamos editando
-            if valores_actuales[i]:
-                # Buscar qué Texto UI corresponde al valor interno de la base de datos
-                val_buscado = valores_actuales[i]
-                for cod, val in MAPAS[i].items():
-                    if val == val_buscado:
-                        cbox.set(BASE_CONOCIMIENTOS[i]["opciones"][cod])
+            if vals_act[i]:
+                for k, v in MAPAS[i].items():
+                    if v == vals_act[i]:
+                        cb.set(BASE_CONOCIMIENTOS[i]["opciones"][k])
                         break
-            
-            vars_seleccion.append(cbox)
+            vars_sel.append(cb)
 
-        # Sección de Datos Descriptivos (ID, Nombre, Explicación)
-        detail_frame = ttk.LabelFrame(frame, text="Datos Descriptivos", padding="15")
-        detail_frame.pack(pady=10, fill="x")
+        right_p = ttk.LabelFrame(content, text=" Detalles ", padding=15)
+        right_p.pack(side="right", fill="both", expand=True, padx=10)
 
-        ttk.Label(detail_frame, text="ID Único (sin espacios):").grid(row=0, column=0, sticky="w")
-        entry_id = ttk.Entry(detail_frame, width=40)
-        entry_id.grid(row=0, column=1, pady=5, sticky="w")
-
-        ttk.Label(detail_frame, text="Nombre Comercial:").grid(row=1, column=0, sticky="w")
-        entry_nombre = ttk.Entry(detail_frame, width=40)
-        entry_nombre.grid(row=1, column=1, pady=5, sticky="w")
+        ttk.Label(right_p, text="Nombre de la herramienta").pack(anchor="w")
+        e_nom = ttk.Entry(right_p, font=FUENTE_NORMAL)
+        e_nom.pack(fill="x", pady=5)
         
-        ttk.Label(detail_frame, text="Explicación / Ruta:").grid(row=2, column=0, sticky="nw")
-        entry_explicacion = tk.Text(detail_frame, height=5, width=50)
-        entry_explicacion.grid(row=2, column=1, pady=5, sticky="w")
+        ttk.Label(right_p, text="Explicación Técnica:").pack(anchor="w")
+        e_exp = tk.Text(right_p, height=5, font=FUENTE_NORMAL, relief="flat", borderwidth=1)
+        e_exp.pack(fill="x", pady=5)
 
-        # Pre-llenado de campos de texto
+        self.tmp_img = None
+        lbl_img = ttk.Label(right_p, text="Sin imagen seleccionada", foreground="gray")
+        lbl_img.pack(anchor="w", pady=(10, 0))
+        
+        def sel_img():
+            path = filedialog.askopenfilename(filetypes=[("Imágenes", "*.png;*.jpg;*.jpeg")])
+            if path:
+                self.tmp_img = path
+                lbl_img.config(text=os.path.basename(path), foreground=COLOR_SECUNDARIO)
+        
+        ttk.Button(right_p, text="Seleccionar Imagen...", command=sel_img).pack(anchor="w", pady=5)
+
         if datos_editar:
-            entry_id.insert(0, datos_editar.get("id", ""))
-            entry_nombre.insert(0, datos_editar.get("nombre", ""))
-            entry_explicacion.insert("1.0", datos_editar.get("explicacion", ""))
-            # Si editamos un existente, bloqueamos el ID para no duplicar
-            if not es_nuevo and "id" in datos_editar:
-                entry_id.config(state="disabled")
+            e_nom.insert(0, datos_editar.get("nombre", ""))
+            e_exp.insert("1.0", datos_editar.get("explicacion", ""))
 
-        # Gestión de Imagen
-        ttk.Label(detail_frame, text="Imagen del Producto:").grid(row=3, column=0, sticky="w")
-        self.ruta_img_temp = None # Variable temporal para guardar ruta
-        
-        texto_imagen_actual = datos_editar.get("imagen", "No asignada") if datos_editar else "No asignada"
-        lbl_img_status = ttk.Label(detail_frame, text=texto_imagen_actual, foreground="gray")
-        lbl_img_status.grid(row=3, column=1, sticky="w")
-
-        def seleccionar_img():
-            ruta = filedialog.askopenfilename(filetypes=[("Imágenes", "*.png;*.jpg;*.jpeg")])
-            if ruta:
-                self.ruta_img_temp = ruta
-                lbl_img_status.config(text=f"Seleccionado: {os.path.basename(ruta)}", foreground="blue")
-
-        ttk.Button(detail_frame, text="Cargar Imagen...", command=seleccionar_img).grid(row=4, column=1, sticky="w", pady=5)
-
-        # LÓGICA DE GUARDADO
-        def guardar_cambios():
-            # 1. Recuperar lógica de los Comboboxes y traducir a valores internos
-            vals_seleccionados = []
-            for idx, cb in enumerate(vars_seleccion):
+        def guardar():
+            sel_vals = []
+            for idx, cb in enumerate(vars_sel):
                 txt = cb.get()
-                if not txt:
-                    messagebox.showerror("Error", "Faltan selecciones en las reglas (Comboboxes).")
+                if not txt: 
+                    messagebox.showerror("Error", "Faltan selecciones lógicas")
                     return
-                
-                # Traducción Inversa: Texto UI -> Código -> Valor Interno
-                val_interno = None
-                for cod, texto_opcion in BASE_CONOCIMIENTOS[idx]["opciones"].items():
-                    if texto_opcion == txt:
-                        val_interno = MAPAS[idx][cod]
+                found = False
+                for k, v in BASE_CONOCIMIENTOS[idx]["opciones"].items():
+                    if v == txt:
+                        sel_vals.append(MAPAS[idx][k])
+                        found = True
                         break
-                vals_seleccionados.append(val_interno)
-
-            # 2. Recuperar textos
-            id_obj = entry_id.get().strip()
-            nombre = entry_nombre.get().strip()
-            explicacion = entry_explicacion.get("1.0", tk.END).strip()
-
-            if not id_obj or not nombre:
-                messagebox.showerror("Error", "El ID y el Nombre son obligatorios.")
+                if not found: sel_vals.append(None)
+             
+            for item in self.base_hechos:
+                if (item["uso"] == sel_vals[0] and
+                    item["movilidad"] == sel_vals[1] and
+                    item["accion"] == sel_vals[2] and
+                    item["material"] == sel_vals[3]):
+                    
+                    if item["id"] != uid:
+                        advertencia = f"¡Cuidado! Ya existe una herramienta en este camino:\n'{item['nombre']}'\n\nSi guardas, la nueva herramienta podría no aparecer en las búsquedas."
+                        respuesta = messagebox.askyesno("Conflicto de Lógica", advertencia + "\n\n¿Deseas guardarla de todos modos?")
+                        if not respuesta:
+                            return
+                            
+            nom = e_nom.get().strip()
+            exp = e_exp.get("1.0", tk.END).strip()
+            
+            if not nom:
+                messagebox.showerror("Error", "Falta el Nombre")
                 return
 
-            # 3. Procesar Imagen (Copiar archivo si se seleccionó uno nuevo)
-            nombre_imagen = datos_editar.get("imagen", "") if datos_editar else ""
-            if self.ruta_img_temp:
-                try:
-                    ext = os.path.splitext(self.ruta_img_temp)[1] # Obtener extensión (.jpg)
-                    # Usamos el NOMBRE exacto de la herramienta para facilitar la búsqueda
-                    nombre_imagen = f"{nombre}{ext}" 
-                    shutil.copy(self.ruta_img_temp, os.path.join(CARPETA_IMG, nombre_imagen))
-                except Exception as e:
-                    messagebox.showwarning("Advertencia", f"Datos guardados, pero error al copiar imagen: {e}")
+            uid = nom 
 
-            # 4. Construir el Objeto Nuevo
-            nuevo_hecho = {
-                "id": id_obj,
-                "nombre": nombre,
-                "uso": vals_seleccionados[0],
-                "movilidad": vals_seleccionados[1],
-                "accion": vals_seleccionados[2],
-                "material": vals_seleccionados[3],
-                "explicacion": explicacion,
-                "imagen": nombre_imagen
+            img_name = datos_editar.get("imagen", "") if datos_editar else ""
+            
+            if self.tmp_img:
+                try:
+                    ext = os.path.splitext(self.tmp_img)[1]
+                    img_name = f"{uid}{ext}" # Nombre exacto + extensión
+                    shutil.copy(self.tmp_img, os.path.join(CARPETA_IMG, img_name))
+                except Exception as e:
+                    messagebox.showwarning("Error Imagen", str(e))
+            elif not img_name:
+                img_name = f"{uid}.png"
+
+            obj = {
+                "id": uid, 
+                "nombre": nom, 
+                "explicacion": exp, 
+                "imagen": img_name,
+                "uso": sel_vals[0], 
+                "movilidad": sel_vals[1], 
+                "accion": sel_vals[2], 
+                "material": sel_vals[3]
             }
 
-            # 5. Actualizar la Lista (Base de Hechos)
-            encontrado = False
+            updated = False
             for idx, item in enumerate(self.base_hechos):
-                if item["id"] == id_obj:
-                    self.base_hechos[idx] = nuevo_hecho
-                    encontrado = True
+                if item["id"] == uid:
+                    self.base_hechos[idx] = obj
+                    updated = True
                     break
+            if not updated: self.base_hechos.append(obj)
             
-            if not encontrado:
-                self.base_hechos.append(nuevo_hecho)
-
-            # 6. Guardar en disco y salir
             self.guardar_base_hechos()
-            messagebox.showinfo("Sistema Experto", "Base de Conocimiento Actualizada Exitosamente.")
-            self.crear_interfaz_principal()
+            messagebox.showinfo("Éxito", "Datos Guardados Correctamente")
+            self.crear_menu_principal()
 
-        # Botones de Acción inferior
-        btn_area = ttk.Frame(frame)
-        btn_area.pack(pady=20)
-        ttk.Button(btn_area, text="Guardar Cambios", command=guardar_cambios).pack(side="left", padx=10)
-        ttk.Button(btn_area, text="Cancelar", command=self.crear_interfaz_principal).pack(side="left", padx=10)
+        btn_bar = ttk.Frame(frame, style="Main.TFrame")
+        btn_bar.pack(pady=20)
+        ttk.Button(btn_bar, text="GUARDAR CAMBIOS", style="Primary.TButton", command=guardar).pack(side="left", padx=10)
+        ttk.Button(btn_bar, text="Cancelar", command=self.crear_menu_principal).pack(side="left", padx=10)
+
+    def mostrar_imagen(self, parent, name, size=(300, 200), bg_color=COLOR_FONDO):
+        canvas = tk.Canvas(parent, width=size[0], height=size[1], bg=bg_color, highlightthickness=0)
+        canvas.pack(pady=(0, 10)) 
+        
+        path = None
+        if name:
+            posibles = [name, name+".png", name+".jpg", name.replace(".png", ".jpg")]
+            for p in posibles:
+                fp = os.path.join(CARPETA_IMG, p)
+                if os.path.exists(fp):
+                    path = fp
+                    break
+        
+        if path:
+            try:
+                img = Image.open(path)
+                img.thumbnail(size, Image.Resampling.LANCZOS)
+                tk_img = ImageTk.PhotoImage(img)
+                parent.ref = tk_img 
+                x = (size[0] - tk_img.width()) // 2
+                y = (size[1] - tk_img.height()) // 2
+                canvas.create_image(x, y, anchor="nw", image=tk_img)
+            except:
+                canvas.create_text(size[0]//2, size[1]//2, text="Error Imagen", fill="gray")
+        else:
+            if name == "Herramientas.png":
+                 canvas.destroy() 
+            else:
+                 canvas.create_text(size[0]//2, size[1]//2, text="Sin Imagen", fill="gray")
+
 if __name__ == "__main__":
     root = tk.Tk()
+    try:
+        from ctypes import windll
+        windll.shcore.SetProcessDpiAwareness(1) 
+    except: pass
     app = SistemaExpertoApp(root)
     root.mainloop()
