@@ -126,7 +126,7 @@ class SistemaExpertoApp:
         self.mostrar_imagen(frame, "Herramientas.png", size=(500, 300))
 
         ttk.Label(frame, text="Bienvenido a BOB, tu ayudante en construcción", style="Header.TLabel").pack(pady=(30, 10))
-        ttk.Label(frame, text="Sistema inteligente para la selección de herramientas.", style="SubHeader.TLabel").pack(pady=5)
+        ttk.Label(frame, text="Sistema inteligente para la recomendación de herramientas.", style="SubHeader.TLabel").pack(pady=5)
 
         btn_start = ttk.Button(frame, text="COMENZAR", style="Primary.TButton", command=self.crear_menu_principal, cursor="hand2")
         btn_start.pack(pady=40, ipadx=30, ipady=12)
@@ -250,6 +250,9 @@ class SistemaExpertoApp:
                        command=lambda: self.abrir_modo_experto(datos_editar=datos_nuevos, es_nuevo=True)).pack(pady=10)
             ttk.Button(frame, text="Cancelar", command=self.crear_menu_principal).pack()
 
+    # ==========================================
+    # 5. MODO EXPERTO (CORREGIDO PARA EDICIÓN)
+    # ==========================================
     def abrir_modo_experto(self, datos_editar=None, es_nuevo=False):
         self.limpiar_ventana()
         frame = ttk.Frame(self.root, style="Main.TFrame")
@@ -258,9 +261,15 @@ class SistemaExpertoApp:
         titulo = "Agregar Nueva Herramienta" if es_nuevo else ("Editor de Herramientas" if datos_editar else "Gestión de Conocimiento")
         ttk.Label(frame, text=titulo, style="Header.TLabel").pack(pady=(0, 20))
 
+        # --- MEMORIA DEL ID ORIGINAL ---
+        # Guardamos el ID que tenía la herramienta AL ABRIR la ventana.
+        # Esto es vital para saber a quién actualizar si le cambian el nombre.
+        id_original = datos_editar.get("id") if datos_editar else None
+
         content = ttk.Frame(frame, style="Main.TFrame")
         content.pack(fill="both", expand=True)
 
+        # Izquierda: Reglas
         left_p = ttk.LabelFrame(content, text=" Reglas Lógicas ", padding=15)
         left_p.pack(side="left", fill="both", expand=True, padx=10)
 
@@ -286,10 +295,11 @@ class SistemaExpertoApp:
                         break
             vars_sel.append(cb)
 
+        # Derecha: Detalles
         right_p = ttk.LabelFrame(content, text=" Detalles ", padding=15)
         right_p.pack(side="right", fill="both", expand=True, padx=10)
 
-        ttk.Label(right_p, text="Nombre de la herramienta").pack(anchor="w")
+        ttk.Label(right_p, text="Nombre Comercial:").pack(anchor="w")
         e_nom = ttk.Entry(right_p, font=FUENTE_NORMAL)
         e_nom.pack(fill="x", pady=5)
         
@@ -309,11 +319,23 @@ class SistemaExpertoApp:
         
         ttk.Button(right_p, text="Seleccionar Imagen...", command=sel_img).pack(anchor="w", pady=5)
 
+        # Pre-llenado visual
         if datos_editar:
             e_nom.insert(0, datos_editar.get("nombre", ""))
             e_exp.insert("1.0", datos_editar.get("explicacion", ""))
 
         def guardar():
+            # 1. Validar nombre
+            nom = e_nom.get().strip()
+            exp = e_exp.get("1.0", tk.END).strip()
+            if not nom:
+                messagebox.showerror("Error", "El nombre es obligatorio")
+                return
+
+            # El nuevo ID será el nombre actual (puede haber cambiado)
+            uid_nuevo = nom 
+
+            # 2. Validar reglas lógicas
             sel_vals = []
             for idx, cb in enumerate(vars_sel):
                 txt = cb.get()
@@ -327,42 +349,43 @@ class SistemaExpertoApp:
                         found = True
                         break
                 if not found: sel_vals.append(None)
-             
+
+            # 3. Validar duplicados de Nombre
+            # Si estamos creando uno nuevo O si cambiamos el nombre al editar...
+            # Verificamos que ese nombre no esté ocupado por OTRA herramienta.
             for item in self.base_hechos:
-                if (item["uso"] == sel_vals[0] and
-                    item["movilidad"] == sel_vals[1] and
-                    item["accion"] == sel_vals[2] and
-                    item["material"] == sel_vals[3]):
-                    
-                    if item["id"] != uid:
-                        advertencia = f"¡Cuidado! Ya existe una herramienta en este camino:\n'{item['nombre']}'\n\nSi guardas, la nueva herramienta podría no aparecer en las búsquedas."
-                        respuesta = messagebox.askyesno("Conflicto de Lógica", advertencia + "\n\n¿Deseas guardarla de todos modos?")
-                        if not respuesta:
+                if item["id"] == uid_nuevo:
+                    # Si existe alguien con este nombre Y no soy yo mismo (id_original)
+                    if id_original is None or (id_original != uid_nuevo):
+                        if not messagebox.askyesno("Nombre duplicado", f"Ya existe una herramienta llamada '{uid_nuevo}'. ¿Deseas sobrescribirla?"):
                             return
-                            
-            nom = e_nom.get().strip()
-            exp = e_exp.get("1.0", tk.END).strip()
-            
-            if not nom:
-                messagebox.showerror("Error", "Falta el Nombre")
-                return
 
-            uid = nom 
-
+            # 4. Manejo de Imagen
             img_name = datos_editar.get("imagen", "") if datos_editar else ""
-            
             if self.tmp_img:
                 try:
                     ext = os.path.splitext(self.tmp_img)[1]
-                    img_name = f"{uid}{ext}" # Nombre exacto + extensión
+                    img_name = f"{uid_nuevo}{ext}"
                     shutil.copy(self.tmp_img, os.path.join(CARPETA_IMG, img_name))
                 except Exception as e:
                     messagebox.showwarning("Error Imagen", str(e))
-            elif not img_name:
-                img_name = f"{uid}.png"
+            elif img_name and id_original and id_original != uid_nuevo:
+                # Si cambiamos el nombre, intentamos renombrar también la imagen vieja si existe
+                vieja_ext = os.path.splitext(img_name)[1]
+                nuevo_img_name = f"{uid_nuevo}{vieja_ext}"
+                try:
+                    viejo_path = os.path.join(CARPETA_IMG, img_name)
+                    nuevo_path = os.path.join(CARPETA_IMG, nuevo_img_name)
+                    if os.path.exists(viejo_path) and not os.path.exists(nuevo_path):
+                        os.rename(viejo_path, nuevo_path)
+                        img_name = nuevo_img_name
+                except: pass # Si falla, no importa, se queda la vieja
 
+            if not img_name: img_name = f"{uid_nuevo}.png"
+
+            # 5. Construir Objeto
             obj = {
-                "id": uid, 
+                "id": uid_nuevo, # El ID se actualiza al nuevo nombre
                 "nombre": nom, 
                 "explicacion": exp, 
                 "imagen": img_name,
@@ -372,13 +395,18 @@ class SistemaExpertoApp:
                 "material": sel_vals[3]
             }
 
-            updated = False
-            for idx, item in enumerate(self.base_hechos):
-                if item["id"] == uid:
-                    self.base_hechos[idx] = obj
-                    updated = True
-                    break
-            if not updated: self.base_hechos.append(obj)
+            # 6. ACTUALIZAR LISTA
+            if id_original: # MODO EDICIÓN
+                encontrado = False
+                for idx, item in enumerate(self.base_hechos):
+                    # Buscamos al elemento por su ID VIEJO
+                    if item["id"] == id_original:
+                        self.base_hechos[idx] = obj # Lo reemplazamos
+                        encontrado = True
+                        break
+                if not encontrado: self.base_hechos.append(obj) # Por si acaso
+            else: # MODO NUEVO
+                self.base_hechos.append(obj)
             
             self.guardar_base_hechos()
             messagebox.showinfo("Éxito", "Datos Guardados Correctamente")
@@ -388,7 +416,6 @@ class SistemaExpertoApp:
         btn_bar.pack(pady=20)
         ttk.Button(btn_bar, text="GUARDAR CAMBIOS", style="Primary.TButton", command=guardar).pack(side="left", padx=10)
         ttk.Button(btn_bar, text="Cancelar", command=self.crear_menu_principal).pack(side="left", padx=10)
-
     def mostrar_imagen(self, parent, name, size=(300, 200), bg_color=COLOR_FONDO):
         canvas = tk.Canvas(parent, width=size[0], height=size[1], bg=bg_color, highlightthickness=0)
         canvas.pack(pady=(0, 10)) 

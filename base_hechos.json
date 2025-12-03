@@ -1,13 +1,13 @@
 [
     {
-        "id": "martillo",
+        "id": "Martillo",
         "nombre": "Martillo",
+        "explicacion": "Recomendado para Carpintería porque necesitas una herramienta Manual que permita aplicar golpes con Precisión sobre superficies de Madera. Código: AAAA",
+        "imagen": "Martillo.png",
         "uso": "carpinteria",
         "movilidad": "manual_portatil",
         "accion": "precision",
-        "material": "madera",
-        "explicacion": "Recomendado para **Carpintería** porque necesitas una herramienta **Manual** que permita aplicar golpes con **Precisión** sobre superficies de **Madera**. Código: AAAA",
-        "imagen": "Martillo.png"
+        "material": "madera"
     },
     {
         "id": "destornillador_plano",
@@ -16,7 +16,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Ideal para **Carpintería** **Manual**. Su punta plana ofrece la **Precisión** necesaria para ajustar tornillería de **Metal** sin dañar la cabeza. Código: AAAB",
+        "explicacion": "Ideal para Carpintería Manual. Su punta plana ofrece la Precisión necesaria para ajustar tornillería de Metal sin dañar la cabeza. Código: AAAB",
         "imagen": "Destornillador plano.png"
     },
     {
@@ -26,7 +26,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Carpintería** **Manual** esencial. Seleccionada por su capacidad de **Precisión** en tornillos de cruz sobre materiales **Multiuso**. Código: AAAC",
+        "explicacion": "Herramienta de Carpintería Manual esencial. Seleccionada por su capacidad de Precisión en tornillos de cruz sobre materiales Multiuso. Código: AAAC",
         "imagen": "Destornillador Phillips.png"
     },
     {
@@ -36,7 +36,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Esta herramienta de **Carpintería** es **Manual** y está diseñada específicamente para aplicar **Fuerza** de corte en tablones de **Madera**. Código: AABA",
+        "explicacion": "Esta herramienta de Carpintería es Manual y está diseñada específicamente para aplicar Fuerza de corte en tablones de Madera. Código: AABA",
         "imagen": "Serrucho.png"
     },
     {
@@ -46,7 +46,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Solución de **Carpintería** **Manual** que permite aplicar la **Fuerza** necesaria para cortar elementos de **Metal** o tuberías pequeñas. Código: AABB",
+        "explicacion": "Solución de Carpintería Manual que permite aplicar la Fuerza necesaria para cortar elementos de Metal o tuberías pequeñas. Código: AABB",
         "imagen": "Sierra de arco.png"
     },
     {
@@ -56,7 +56,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Carpintería** **Manual** recomendada para aplicar gran **Fuerza** de impacto y corte en materiales **Multiuso** o leña. Código: AABC",
+        "explicacion": "Herramienta de Carpintería Manual recomendada para aplicar gran Fuerza de impacto y corte en materiales Multiuso o leña. Código: AABC",
         "imagen": "Hacha de mano.png"
     },
     {
@@ -66,7 +66,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Indispensable en **Carpintería** **Manual**. Permite realizar la **Medición** dimensional exacta de piezas de **Madera**. Código: AACA",
+        "explicacion": "Indispensable en Carpintería Manual. Permite realizar la Medición dimensional exacta de piezas de Madera. Código: AACA",
         "imagen": "Cinta métrica.png"
     },
     {
@@ -76,7 +76,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Herramienta de **Carpintería** **Manual** seleccionada para la **Medición** de horizontalidad en estructuras de **Metal** o madera. Código: AACB",
+        "explicacion": "Herramienta de Carpintería Manual seleccionada para la Medición de horizontalidad en estructuras de Metal o madera. Código: AACB",
         "imagen": "Nivel de burbuja.png"
     },
     {
@@ -86,7 +86,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Instrumento de **Carpintería** **Manual** para la **Medición** y trazado de ángulos rectos en materiales **Multiuso**. Código: AACC",
+        "explicacion": "Instrumento de Carpintería Manual para la Medición y trazado de ángulos rectos en materiales Multiuso. Código: AACC",
         "imagen": "Escuadra metálica.png"
     },
     {
@@ -96,7 +96,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Equipo de **Carpintería** **Portátil Motorizado** que brinda velocidad y **Precisión** al perforar orificios en **Madera**. Código: ABAA",
+        "explicacion": "Equipo de Carpintería Portátil Motorizado que brinda velocidad y Precisión al perforar orificios en Madera. Código: ABAA",
         "imagen": "Taladro eléctrico.png"
     },
     {
@@ -106,7 +106,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Carpintería/Construcción**. Su modo percutor ofrece **Precisión** y potencia en **Metal** y concreto. Código: ABAB",
+        "explicacion": "Herramienta Portátil Motorizada de Carpintería/Construcción. Su modo percutor ofrece Precisión y potencia en Metal y concreto. Código: ABAB",
         "imagen": "Taladro percutor.png"
     },
     {
@@ -116,7 +116,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Dispositivo **Portátil Motorizado** para **Carpintería**. Garantiza **Precisión** y rapidez en el fijado de tornillos sobre materiales **Multiuso**. Código: ABAC",
+        "explicacion": "Dispositivo Portátil Motorizado para Carpintería. Garantiza Precisión y rapidez en el fijado de tornillos sobre materiales Multiuso. Código: ABAC",
         "imagen": "Atornillador eléctrico.png"
     },
     {
@@ -126,7 +126,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta de **Carpintería** **Portátil Motorizada**. Aplica **Fuerza** de corte vertical para realizar figuras en **Madera**. Código: ABBA",
+        "explicacion": "Herramienta de Carpintería Portátil Motorizada. Aplica Fuerza de corte vertical para realizar figuras en Madera. Código: ABBA",
         "imagen": "Sierra caladora.png"
     },
     {
@@ -136,7 +136,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Potente equipo de **Carpintería** **Portátil Motorizado**. Genera la **Fuerza** necesaria para cortar **Metal** fino o madera dura. Código: ABBB",
+        "explicacion": "Potente equipo de Carpintería Portátil Motorizado. Genera la Fuerza necesaria para cortar Metal fino o madera dura. Código: ABBB",
         "imagen": "Sierra circular.png"
     },
     {
@@ -146,7 +146,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Máquina de **Carpintería** **Portátil Motorizada**. Usa **Fuerza** de fricción para alisar superficies **Multiuso**. Código: ABBC",
+        "explicacion": "Máquina de Carpintería Portátil Motorizada. Usa Fuerza de fricción para alisar superficies Multiuso. Código: ABBC",
         "imagen": "Lijadora orbital.png"
     },
     {
@@ -156,7 +156,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Dispositivo de **Carpintería** **Portátil (Batería)**. Realiza **Medición** de distancias instantánea para cálculo de **Madera**. Código: ABCA",
+        "explicacion": "Dispositivo de Carpintería Portátil (Batería). Realiza Medición de distancias instantánea para cálculo de Madera. Código: ABCA",
         "imagen": "Medidor láser.png"
     },
     {
@@ -166,7 +166,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** útil en **Carpintería**. Permite la **Medición** y suministro de presión de aire (tanque de **Metal**). Código: ABCB",
+        "explicacion": "Equipo Portátil Motorizado útil en Carpintería. Permite la Medición y suministro de presión de aire (tanque de Metal). Código: ABCB",
         "imagen": "Compresor portátil.png"
     },
     {
@@ -176,7 +176,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Carpintería**. Ideal para fijación rápida (**Medición** por impacto) en materiales **Multiuso**. Código: ABCC",
+        "explicacion": "Herramienta Portátil Motorizada de Carpintería. Ideal para fijación rápida (Medición por impacto) en materiales Multiuso. Código: ABCC",
         "imagen": "Engrapadora eléctrica.png"
     },
     {
@@ -186,7 +186,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Carpintería**. Diseñada para desbastar con **Precisión** y nivelar tablones de **Madera**. Código: ACAA",
+        "explicacion": "Máquina Estacionaria de Carpintería. Diseñada para desbastar con Precisión y nivelar tablones de Madera. Código: ACAA",
         "imagen": "Cepillo de carpintero.png"
     },
     {
@@ -196,7 +196,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Carpintería/Taller**. Ofrece **Precisión** en el acabado y pulido de piezas de **Metal** o madera. Código: ACAB",
+        "explicacion": "Equipo Estacionario de Carpintería/Taller. Ofrece Precisión en el acabado y pulido de piezas de Metal o madera. Código: ACAB",
         "imagen": "Lijadora de banda estacionaria.png"
     },
     {
@@ -206,7 +206,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta **Estacionaria** de **Carpintería**. Permite dar forma con **Precisión** a piezas cilíndricas **Multiuso**. Código: ACAC",
+        "explicacion": "Herramienta Estacionaria de Carpintería. Permite dar forma con Precisión a piezas cilíndricas Multiuso. Código: ACAC",
         "imagen": "Torno para madera.png"
     },
     {
@@ -216,7 +216,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Carpintería**. Aplica **Fuerza** rotativa para crear perfiles y ranuras en **Madera**. Código: ACBA",
+        "explicacion": "Máquina Estacionaria de Carpintería. Aplica Fuerza rotativa para crear perfiles y ranuras en Madera. Código: ACBA",
         "imagen": "Fresadora de mesa.png"
     },
     {
@@ -226,7 +226,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Carpintería**. Provee la **Fuerza** y estabilidad para cortar láminas de **Metal** o madera. Código: ACBB",
+        "explicacion": "Equipo Estacionario de Carpintería. Provee la Fuerza y estabilidad para cortar láminas de Metal o madera. Código: ACBB",
         "imagen": "Sierra de banco.png"
     },
     {
@@ -236,7 +236,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta **Estacionaria** de **Carpintería**. Ejerce gran **Fuerza** de sujeción para encolar materiales **Multiuso**. Código: ACBC",
+        "explicacion": "Herramienta Estacionaria de Carpintería. Ejerce gran Fuerza de sujeción para encolar materiales Multiuso. Código: ACBC",
         "imagen": "Prensa de carpintería.png"
     },
     {
@@ -246,7 +246,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Instrumento usado en bancos **Estacionarios** de **Carpintería**. Garantiza la **Medición** exacta de ángulos en **Madera**. Código: ACCA",
+        "explicacion": "Instrumento usado en bancos Estacionarios de Carpintería. Garantiza la Medición exacta de ángulos en Madera. Código: ACCA",
         "imagen": "Escuadra de precisión.png"
     },
     {
@@ -256,7 +256,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Herramienta de referencia **Estacionaria** en taller. Ideal para la **Medición** milimétrica de piezas de **Metal**. Código: ACCB",
+        "explicacion": "Herramienta de referencia Estacionaria en taller. Ideal para la Medición milimétrica de piezas de Metal. Código: ACCB",
         "imagen": "Calibrador Vernier.png"
     },
     {
@@ -266,7 +266,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Mobiliario **Estacionario** fundamental en **Carpintería**. Sirve de base para la **Medición** y trabajo de materiales **Multiuso**. Código: ACCC",
+        "explicacion": "Mobiliario Estacionario fundamental en Carpintería. Sirve de base para la Medición y trabajo de materiales Multiuso. Código: ACCC",
         "imagen": "Mesabanco de trabajo.png"
     },
     {
@@ -276,7 +276,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Herramienta de **Electricidad** **Manual**. Seleccionada por su **Precisión** para manipular cables en entornos de **Madera** o tablaroca. Código: BAAA",
+        "explicacion": "Herramienta de Electricidad Manual. Seleccionada por su Precisión para manipular cables en entornos de Madera o tablaroca. Código: BAAA",
         "imagen": "Pinzas de punta.png"
     },
     {
@@ -286,7 +286,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Básica en **Electricidad** **Manual**. Ofrece **Precisión** al cortar conductores de **Metal** (cobre/aluminio). Código: BAAB",
+        "explicacion": "Básica en Electricidad Manual. Ofrece Precisión al cortar conductores de Metal (cobre/aluminio). Código: BAAB",
         "imagen": "Pinzas de corte.png"
     },
     {
@@ -296,7 +296,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Electricidad** **Manual**. Diseñada para la **Precisión** al retirar aislantes de cables **Multiuso**. Código: BAAC",
+        "explicacion": "Herramienta de Electricidad Manual. Diseñada para la Precisión al retirar aislantes de cables Multiuso. Código: BAAC",
         "imagen": "Pelacables manual.png"
     },
     {
@@ -306,7 +306,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta de **Electricidad** **Manual**. Aplica **Fuerza** de sujeción para trabajos en estructuras de **Madera**. Código: BABA",
+        "explicacion": "Herramienta de Electricidad Manual. Aplica Fuerza de sujeción para trabajos en estructuras de Madera. Código: BABA",
         "imagen": "Alicates.png"
     },
     {
@@ -316,7 +316,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Esencial en **Electricidad** **Manual**. Usa **Fuerza** para deformar terminales de **Metal** asegurando la conexión. Código: BABB",
+        "explicacion": "Esencial en Electricidad Manual. Usa Fuerza para deformar terminales de Metal asegurando la conexión. Código: BABB",
         "imagen": "Crimpadora manual.png"
     },
     {
@@ -326,7 +326,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Electricidad** **Manual**. Requiere **Fuerza** para guiar cableado a través de ductos **Multiuso**. Código: BABC",
+        "explicacion": "Herramienta de Electricidad Manual. Requiere Fuerza para guiar cableado a través de ductos Multiuso. Código: BABC",
         "imagen": "Extractor de cables.png"
     },
     {
@@ -336,7 +336,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Dispositivo de **Electricidad** **Manual**. Realiza **Medición** básica de circuitos en instalaciones sobre **Madera**. Código: BACA",
+        "explicacion": "Dispositivo de Electricidad Manual. Realiza Medición básica de circuitos en instalaciones sobre Madera. Código: BACA",
         "imagen": "Probador de continuidad.png"
     },
     {
@@ -346,7 +346,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Herramienta de **Electricidad** **Manual**. Permite la **Medición** y detección de tensión en contactos de **Metal**. Código: BACB",
+        "explicacion": "Herramienta de Electricidad Manual. Permite la Medición y detección de tensión en contactos de Metal. Código: BACB",
         "imagen": "Probador de voltaje.png"
     },
     {
@@ -356,7 +356,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "El estándar en **Electricidad** **Manual**. Capaz de realizar **Medición** de voltaje, corriente y resistencia en componentes **Multiuso**. Código: BACC",
+        "explicacion": "El estándar en Electricidad Manual. Capaz de realizar Medición de voltaje, corriente y resistencia en componentes Multiuso. Código: BACC",
         "imagen": "Multímetro.png"
     },
     {
@@ -366,7 +366,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Electricidad**. Ofrece **Precisión** térmica para unir componentes (usualmente sobre mesa de **Madera**). Código: BBAA",
+        "explicacion": "Herramienta Portátil Motorizada de Electricidad. Ofrece Precisión térmica para unir componentes (usualmente sobre mesa de Madera). Código: BBAA",
         "imagen": "Soldador eléctrico.png"
     },
     {
@@ -376,7 +376,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** para **Electricidad**. Aplica calor con **Precisión** para aislar cables de **Metal** (termocontraíble). Código: BBAB",
+        "explicacion": "Equipo Portátil Motorizado para Electricidad. Aplica calor con Precisión para aislar cables de Metal (termocontraíble). Código: BBAB",
         "imagen": "Pistola de calor.png"
     },
     {
@@ -386,7 +386,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Dispositivo **Portátil Motorizado** de **Electricidad**. Suministra energía con **Precisión** para probar equipos **Multiuso**. Código: BBAC",
+        "explicacion": "Dispositivo Portátil Motorizado de Electricidad. Suministra energía con Precisión para probar equipos Multiuso. Código: BBAC",
         "imagen": "Fuente de poder portátil.png"
     },
     {
@@ -396,7 +396,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta **Portátil Motorizada** auxiliar en **Electricidad**. Aplica **Fuerza** rotativa para pequeños cortes en **Madera** o gabinetes. Código: BBBA",
+        "explicacion": "Herramienta Portátil Motorizada auxiliar en Electricidad. Aplica Fuerza rotativa para pequeños cortes en Madera o gabinetes. Código: BBBA",
         "imagen": "Mini-taladro rotativo.png"
     },
     {
@@ -406,7 +406,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** usado en **Electricidad** industrial. Aplica **Fuerza** para cortar canaletas de **Metal**. Código: BBBB",
+        "explicacion": "Equipo Portátil Motorizado usado en Electricidad industrial. Aplica Fuerza para cortar canaletas de Metal. Código: BBBB",
         "imagen": "Amoladora angular.png"
     },
     {
@@ -416,7 +416,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Electricidad**. Ejerce **Fuerza** hidráulica/eléctrica para cortar cableado grueso **Multiuso**. Código: BBBC",
+        "explicacion": "Herramienta Portátil Motorizada de Electricidad. Ejerce Fuerza hidráulica/eléctrica para cortar cableado grueso Multiuso. Código: BBBC",
         "imagen": "Cortadora eléctrica de cables.png"
     },
     {
@@ -426,7 +426,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Dispositivo **Portátil Motorizado** para **Electricidad**. Realiza **Medición** de distancias para tendido de cable sobre **Madera**. Código: BBCA",
+        "explicacion": "Dispositivo Portátil Motorizado para Electricidad. Realiza Medición de distancias para tendido de cable sobre Madera. Código: BBCA",
         "imagen": "Medidor digital láser.png"
     },
     {
@@ -436,7 +436,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Instrumento **Portátil Motorizado** (electrónico) de **Electricidad**. Permite la **Medición** de corriente en líneas de **Metal** sin contacto. Código: BBCB",
+        "explicacion": "Instrumento Portátil Motorizado (electrónico) de Electricidad. Permite la Medición de corriente en líneas de Metal sin contacto. Código: BBCB",
         "imagen": "Pinza amperimétrica.png"
     },
     {
@@ -446,7 +446,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Equipo avanzado **Portátil Motorizado** para **Electricidad**. Ejecuta **Medición** y diagnóstico completo de redes **Multiuso**. Código: BBCC",
+        "explicacion": "Equipo avanzado Portátil Motorizado para Electricidad. Ejecuta Medición y diagnóstico completo de redes Multiuso. Código: BBCC",
         "imagen": "Analizador de circuitos.png"
     },
     {
@@ -456,7 +456,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Equipo **Estacionario** de **Electricidad**. Controla la temperatura con **Precisión** para soldar en banco de **Madera**. Código: BCAA",
+        "explicacion": "Equipo Estacionario de Electricidad. Controla la temperatura con Precisión para soldar en banco de Madera. Código: BCAA",
         "imagen": "Estación de soldadura.png"
     },
     {
@@ -466,7 +466,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Máquina **Estacionaria** de **Electricidad**. Corta con **Precisión** y repetibilidad cables de **Metal** en producción. Código: BCAB",
+        "explicacion": "Máquina Estacionaria de Electricidad. Corta con Precisión y repetibilidad cables de Metal en producción. Código: BCAB",
         "imagen": "Cortadora estacionaria de cables.png"
     },
     {
@@ -476,7 +476,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Sistema **Estacionario** de **Electricidad**. Permite pruebas de alta **Precisión** en componentes **Multiuso**. Código: BCAC",
+        "explicacion": "Sistema Estacionario de Electricidad. Permite pruebas de alta Precisión en componentes Multiuso. Código: BCAC",
         "imagen": "Banco de pruebas electrónico.png"
     },
     {
@@ -486,7 +486,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Electricidad**. Aplica **Fuerza** masiva para crimpar conectores (montada en **Madera**). Código: BCBA",
+        "explicacion": "Máquina Estacionaria de Electricidad. Aplica Fuerza masiva para crimpar conectores (montada en Madera). Código: BCBA",
         "imagen": "Prensa de terminales industrial.png"
     },
     {
@@ -496,7 +496,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de apoyo a **Electricidad**. Usa **Fuerza** para cortar bandejas portacables de **Metal**. Código: BCBB",
+        "explicacion": "Equipo Estacionario de apoyo a Electricidad. Usa Fuerza para cortar bandejas portacables de Metal. Código: BCBB",
         "imagen": "Cortadora de metal estacionaria.png"
     },
     {
@@ -506,7 +506,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Máquina **Estacionaria** de **Electricidad**. Aplica **Fuerza** para preparar bordes de tuberías **Multiuso**. Código: BCBC",
+        "explicacion": "Máquina Estacionaria de Electricidad. Aplica Fuerza para preparar bordes de tuberías Multiuso. Código: BCBC",
         "imagen": "Biseladora eléctrica.png"
     },
     {
@@ -516,7 +516,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Instrumento **Estacionario** de **Electricidad**. Realiza **Medición** y gráfica de señales en laboratorio (**Madera**). Código: BCCA",
+        "explicacion": "Instrumento Estacionario de Electricidad. Realiza Medición y gráfica de señales en laboratorio (Madera). Código: BCCA",
         "imagen": "Osciloscopio de banco.png"
     },
     {
@@ -526,7 +526,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Electricidad**. Hace **Medición** de calidad de energía en tableros de **Metal**. Código: BCCB",
+        "explicacion": "Equipo Estacionario de Electricidad. Hace Medición de calidad de energía en tableros de Metal. Código: BCCB",
         "imagen": "Analizador de red.png"
     },
     {
@@ -536,10 +536,9 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Consola **Estacionaria** de **Electricidad**. Integra múltiples herramientas de **Medición** para dispositivos **Multiuso**. Código: BCCC",
+        "explicacion": "Consola Estacionaria de Electricidad. Integra múltiples herramientas de Medición para dispositivos Multiuso. Código: BCCC",
         "imagen": "Estación de medición multifunción.png"
     },
-
     {
         "id": "llave_inglesa",
         "nombre": "Llave inglesa",
@@ -547,7 +546,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Permite ajuste con **Precisión** de tuercas (a veces usada en montajes de **Madera**). Código: CAAA",
+        "explicacion": "Herramienta de Mecánica Manual. Permite ajuste con Precisión de tuercas (a veces usada en montajes de Madera). Código: CAAA",
         "imagen": "Llave inglesa.png"
     },
     {
@@ -557,7 +556,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Básica en **Mecánica** **Manual**. Ofrece **Precisión** para tornillos hexagonales internos de **Metal**. Código: CAAB",
+        "explicacion": "Básica en Mecánica Manual. Ofrece Precisión para tornillos hexagonales internos de Metal. Código: CAAB",
         "imagen": "Llave Allen.png"
     },
     {
@@ -567,7 +566,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Da **Precisión** para alcanzar tuercas profundas en motores **Multiuso**. Código: CAAC",
+        "explicacion": "Herramienta de Mecánica Manual. Da Precisión para alcanzar tuercas profundas en motores Multiuso. Código: CAAC",
         "imagen": "Llave de tubo.png"
     },
     {
@@ -577,7 +576,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Aplica **Fuerza** de impacto controlada (ocasionalmente en **Madera**). Código: CABA",
+        "explicacion": "Herramienta de Mecánica Manual. Aplica Fuerza de impacto controlada (ocasionalmente en Madera). Código: CABA",
         "imagen": "Martillo de bola.png"
     },
     {
@@ -587,7 +586,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Multiplica la **Fuerza** para cortar cadenas o pernos de **Metal**. Código: CABB",
+        "explicacion": "Herramienta de Mecánica Manual. Multiplica la Fuerza para cortar cadenas o pernos de Metal. Código: CABB",
         "imagen": "Cortapernos.png"
     },
     {
@@ -597,7 +596,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Usa **Fuerza** de palanca para extraer elementos **Multiuso**. Código: CABC",
+        "explicacion": "Herramienta de Mecánica Manual. Usa Fuerza de palanca para extraer elementos Multiuso. Código: CABC",
         "imagen": "Tenazas.png"
     },
     {
@@ -607,7 +606,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Instrumento de **Mecánica** **Manual**. Realiza **Medición** de presión (diagrama lo ubica en **Madera**). Código: CACA",
+        "explicacion": "Instrumento de Mecánica Manual. Realiza Medición de presión (diagrama lo ubica en Madera). Código: CACA",
         "imagen": "Manómetro.png"
     },
     {
@@ -617,7 +616,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Herramienta de **Mecánica** **Manual**. Juego de láminas para la **Medición** de holguras en piezas de **Metal**. Código: CACB",
+        "explicacion": "Herramienta de Mecánica Manual. Juego de láminas para la Medición de holguras en piezas de Metal. Código: CACB",
         "imagen": "Calibrador metálico.png"
     },
     {
@@ -627,7 +626,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Accesorio de **Mecánica** **Manual**. Permite la **Medición** visual y revisión de detalles **Multiuso**. Código: CACC",
+        "explicacion": "Accesorio de Mecánica Manual. Permite la Medición visual y revisión de detalles Multiuso. Código: CACC",
         "imagen": "Lupa de inspección industrial.png"
     },
     {
@@ -637,7 +636,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Mecánica**. Controla el torque con **Precisión** (diagrama: **Madera**). Código: CBAA",
+        "explicacion": "Herramienta Portátil Motorizada de Mecánica. Controla el torque con Precisión (diagrama: Madera). Código: CBAA",
         "imagen": "Llave de impacto eléctrica.png"
     },
     {
@@ -647,7 +646,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** de **Mecánica**. Ofrece **Precisión** y potencia para pernos de **Metal** en automoción. Código: CBAB",
+        "explicacion": "Equipo Portátil Motorizado de Mecánica. Ofrece Precisión y potencia para pernos de Metal en automoción. Código: CBAB",
         "imagen": "Pistola de impacto eléctrica.png"
     },
     {
@@ -657,7 +656,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Mecánica**. Fija remaches con **Precisión** en superficies **Multiuso**. Código: CBAC",
+        "explicacion": "Herramienta Portátil Motorizada de Mecánica. Fija remaches con Precisión en superficies Multiuso. Código: CBAC",
         "imagen": "Remachadora eléctrica.png"
     },
     {
@@ -667,7 +666,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Mecánica**. Aplica **Fuerza** de rotación para desbaste (diagrama: **Madera**). Código: CBBA",
+        "explicacion": "Herramienta Portátil Motorizada de Mecánica. Aplica Fuerza de rotación para desbaste (diagrama: Madera). Código: CBBA",
         "imagen": "Amoladora.png"
     },
     {
@@ -677,7 +676,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** de **Mecánica**. Usa **Fuerza** para trozar barras de **Metal**. Código: CBBB",
+        "explicacion": "Equipo Portátil Motorizado de Mecánica. Usa Fuerza para trozar barras de Metal. Código: CBBB",
         "imagen": "Cortadora de metal motorizada.png"
     },
     {
@@ -687,7 +686,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta **Portátil Motorizada** de **Mecánica**. Aplica **Fuerza** bruta para demolición de materiales **Multiuso**. Código: CBBC",
+        "explicacion": "Herramienta Portátil Motorizada de Mecánica. Aplica Fuerza bruta para demolición de materiales Multiuso. Código: CBBC",
         "imagen": "Sierra sable.png"
     },
     {
@@ -697,7 +696,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Dispositivo **Portátil Motorizado** de **Mecánica**. Realiza **Medición** de espesores (diagrama: **Madera**). Código: CBCA",
+        "explicacion": "Dispositivo Portátil Motorizado de Mecánica. Realiza Medición de espesores (diagrama: Madera). Código: CBCA",
         "imagen": "Medidor ultrasónico.png"
     },
     {
@@ -707,7 +706,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** de **Mecánica**. Facilita la **Medición** y trasvase de fluidos en contenedores de **Metal**. Código: CBCB",
+        "explicacion": "Equipo Portátil Motorizado de Mecánica. Facilita la Medición y trasvase de fluidos en contenedores de Metal. Código: CBCB",
         "imagen": "Bomba eléctrica.png"
     },
     {
@@ -717,7 +716,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Instrumento **Portátil Motorizado** de **Mecánica**. Realiza **Medición** para localizar piezas **Multiuso** ocultas. Código: CBCC",
+        "explicacion": "Instrumento Portátil Motorizado de Mecánica. Realiza Medición para localizar piezas Multiuso ocultas. Código: CBCC",
         "imagen": "Detector digital de metales.png"
     },
     {
@@ -727,7 +726,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Mecánica**. Mecaniza piezas con **Precisión** (diagrama: **Madera**). Código: CCAA",
+        "explicacion": "Máquina Estacionaria de Mecánica. Mecaniza piezas con Precisión (diagrama: Madera). Código: CCAA",
         "imagen": "Torno mecánico.png"
     },
     {
@@ -737,7 +736,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Máquina **Estacionaria** de **Mecánica**. Diseñada para dar formas de alta **Precisión** al **Metal**. Código: CCAB",
+        "explicacion": "Máquina Estacionaria de Mecánica. Diseñada para dar formas de alta Precisión al Metal. Código: CCAB",
         "imagen": "Fresadora industrial.png"
     },
     {
@@ -747,7 +746,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Equipo **Estacionario** de **Mecánica**. Aplica presión controlada con **Precisión** en componentes **Multiuso**. Código: CCAC",
+        "explicacion": "Equipo Estacionario de Mecánica. Aplica presión controlada con Precisión en componentes Multiuso. Código: CCAC",
         "imagen": "Prensa hidráulica.png"
     },
     {
@@ -757,7 +756,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Mecánica**. Aplica **Fuerza** de corte continuo (diagrama: **Madera**). Código: CCBA",
+        "explicacion": "Máquina Estacionaria de Mecánica. Aplica Fuerza de corte continuo (diagrama: Madera). Código: CCBA",
         "imagen": "Sierra de banco industrial.png"
     },
     {
@@ -767,7 +766,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Mecánica**. Genera **Fuerza** neumática para herramientas de **Metal**. Código: CCBB",
+        "explicacion": "Equipo Estacionario de Mecánica. Genera Fuerza neumática para herramientas de Metal. Código: CCBB",
         "imagen": "Compresor estacionario.png"
     },
     {
@@ -777,7 +776,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Máquina **Estacionaria** de **Mecánica**. Usa gran **Fuerza** para cizallar materiales **Multiuso** resistentes. Código: CCBC",
+        "explicacion": "Máquina Estacionaria de Mecánica. Usa gran Fuerza para cizallar materiales Multiuso resistentes. Código: CCBC",
         "imagen": "Cortadora industrial de acero.png"
     },
     {
@@ -787,7 +786,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Equipo avanzado **Estacionario** de **Mecánica**. Realiza **Medición** sin contacto (diagrama: **Madera**). Código: CCCA",
+        "explicacion": "Equipo avanzado Estacionario de Mecánica. Realiza Medición sin contacto (diagrama: Madera). Código: CCCA",
         "imagen": "Sistema de medición óptica.png"
     },
     {
@@ -797,7 +796,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Estación de trabajo **Estacionaria** de **Mecánica**. Permite la **Medición** de sistemas de fluidos en **Metal**. Código: CCCB",
+        "explicacion": "Estación de trabajo Estacionaria de Mecánica. Permite la Medición de sistemas de fluidos en Metal. Código: CCCB",
         "imagen": "Banco hidráulico.png"
     },
     {
@@ -807,10 +806,9 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Centro **Estacionario** de **Mecánica**. Dedicado a la **Medición** y ajuste fino de instrumentos **Multiuso**. Código: CCCC",
+        "explicacion": "Centro Estacionario de Mecánica. Dedicado a la Medición y ajuste fino de instrumentos Multiuso. Código: CCCC",
         "imagen": "Estación industrial de calibración.png"
     },
-
     {
         "id": "brocha",
         "nombre": "Brocha",
@@ -818,7 +816,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Herramienta de **Pintura** **Manual**. Ideal para aplicar acabados con **Precisión** sobre superficies de **Madera**. Código: DAAA",
+        "explicacion": "Herramienta de Pintura Manual. Ideal para aplicar acabados con Precisión sobre superficies de Madera. Código: DAAA",
         "imagen": "Brocha.png"
     },
     {
@@ -828,7 +826,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Herramienta de **Pintura** **Manual**. Permite cubrir con **Precisión** áreas planas de **Metal** o paredes lisas. Código: DAAB",
+        "explicacion": "Herramienta de Pintura Manual. Permite cubrir con Precisión áreas planas de Metal o paredes lisas. Código: DAAB",
         "imagen": "Rodillo pequeño.png"
     },
     {
@@ -838,7 +836,7 @@
         "movilidad": "manual_portatil",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Pintura** **Manual**. Usada para aplicar masilla con **Precisión** en grietas **Multiuso**. Código: DAAC",
+        "explicacion": "Herramienta de Pintura Manual. Usada para aplicar masilla con Precisión en grietas Multiuso. Código: DAAC",
         "imagen": "Espátula metálica.png"
     },
     {
@@ -848,7 +846,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Herramienta de **Albañilería** **Manual**. Requiere **Fuerza** para alisar cemento (diagrama ubica en **Madera**). Código: DABA",
+        "explicacion": "Herramienta de Albañilería Manual. Requiere Fuerza para alisar cemento (diagrama ubica en Madera). Código: DABA",
         "imagen": "Llana.png"
     },
     {
@@ -858,7 +856,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Herramienta de **Albañilería** **Manual**. Aplica **Fuerza** de impacto para romper **Metal** o piedra. Código: DABB",
+        "explicacion": "Herramienta de Albañilería Manual. Aplica Fuerza de impacto para romper Metal o piedra. Código: DABB",
         "imagen": "Cincel de albañil.png"
     },
     {
@@ -868,7 +866,7 @@
         "movilidad": "manual_portatil",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Pintura** **Manual**. Usa **Fuerza** para retirar residuos de superficies **Multiuso**. Código: DABC",
+        "explicacion": "Herramienta de Pintura Manual. Usa Fuerza para retirar residuos de superficies Multiuso. Código: DABC",
         "imagen": "Rasqueta.png"
     },
     {
@@ -878,7 +876,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Insumo de **Pintura** **Manual**. Ayuda en la **Medición** y delimitación de áreas en **Madera**. Código: DACA",
+        "explicacion": "Insumo de Pintura Manual. Ayuda en la Medición y delimitación de áreas en Madera. Código: DACA",
         "imagen": "Cinta de enmascarar.png"
     },
     {
@@ -888,7 +886,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Herramienta de **Albañilería** **Manual**. Prepara superficies de **Metal** (diagrama: **Medición**). Código: DACB",
+        "explicacion": "Herramienta de Albañilería Manual. Prepara superficies de Metal (diagrama: Medición). Código: DACB",
         "imagen": "Cepillo metálico.png"
     },
     {
@@ -898,7 +896,7 @@
         "movilidad": "manual_portatil",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Albañilería** **Manual**. Esencial para la **Medición** de horizontalidad en obras **Multiuso**. Código: DACC",
+        "explicacion": "Herramienta de Albañilería Manual. Esencial para la Medición de horizontalidad en obras Multiuso. Código: DACC",
         "imagen": "Nivel de mano.png"
     },
     {
@@ -908,7 +906,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Equipo de **Pintura** **Portátil Motorizado**. Pulveriza material con **Precisión** sobre **Madera**. Código: DBAA",
+        "explicacion": "Equipo de Pintura Portátil Motorizado. Pulveriza material con Precisión sobre Madera. Código: DBAA",
         "imagen": "Pistola de pintura eléctrica.png"
     },
     {
@@ -918,7 +916,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Equipo **Portátil Motorizado** de **Pintura**. Suministra aire con **Precisión** para acabados en **Metal**. Código: DBAB",
+        "explicacion": "Equipo Portátil Motorizado de Pintura. Suministra aire con Precisión para acabados en Metal. Código: DBAB",
         "imagen": "Compresor portátil para pintura.png"
     },
     {
@@ -928,7 +926,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Pintura** **Portátil Motorizada**. Alisa con **Precisión** paredes y superficies **Multiuso**. Código: DBAC",
+        "explicacion": "Herramienta de Pintura Portátil Motorizada. Alisa con Precisión paredes y superficies Multiuso. Código: DBAC",
         "imagen": "Lijadora eléctrica.png"
     },
     {
@@ -938,7 +936,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Equipo de **Pintura** **Portátil Motorizado**. Aplica **Fuerza** de rotación para mezclar (diagrama: **Madera**). Código: DBBA",
+        "explicacion": "Equipo de Pintura Portátil Motorizado. Aplica Fuerza de rotación para mezclar (diagrama: Madera). Código: DBBA",
         "imagen": "Mezcladora eléctrica de pintura.png"
     },
     {
@@ -948,7 +946,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Herramienta de **Albañilería** **Portátil Motorizada**. Usa **Fuerza** para cortar cerámica (diagrama: **Metal**). Código: DBBB",
+        "explicacion": "Herramienta de Albañilería Portátil Motorizada. Usa Fuerza para cortar cerámica (diagrama: Metal). Código: DBBB",
         "imagen": "Cortadora eléctrica de azulejos.png"
     },
     {
@@ -958,7 +956,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Herramienta de **Pintura** **Portátil Motorizada**. Aplica **Fuerza** para dar brillo a pisos **Multiuso**. Código: DBBC",
+        "explicacion": "Herramienta de Pintura Portátil Motorizada. Aplica Fuerza para dar brillo a pisos Multiuso. Código: DBBC",
         "imagen": "Pulidora eléctrica.png"
     },
     {
@@ -968,7 +966,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Dispositivo de **Albañilería** **Portátil Motorizado**. Realiza **Medición** rápida de áreas en **Madera** o muros. Código: DBCA",
+        "explicacion": "Dispositivo de Albañilería Portátil Motorizado. Realiza Medición rápida de áreas en Madera o muros. Código: DBCA",
         "imagen": "Medidor láser de distancias.png"
     },
     {
@@ -978,7 +976,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Instrumento de **Pintura** **Portátil Motorizado**. Hace **Medición** de agua en paredes (diagrama: **Metal**). Código: DBCB",
+        "explicacion": "Instrumento de Pintura Portátil Motorizado. Hace Medición de agua en paredes (diagrama: Metal). Código: DBCB",
         "imagen": "Detector de humedad electrónico.png"
     },
     {
@@ -988,7 +986,7 @@
         "movilidad": "portatil_motorizada",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Equipo de **Albañilería** **Portátil Motorizado**. Garantiza la **Medición** exacta de pendientes **Multiuso**. Código: DBCC",
+        "explicacion": "Equipo de Albañilería Portátil Motorizado. Garantiza la Medición exacta de pendientes Multiuso. Código: DBCC",
         "imagen": "Detector de nivel digital.png"
     },
     {
@@ -998,7 +996,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Albañilería**. Realiza mezclas con **Precisión** (diagrama: **Madera**). Código: DCAA",
+        "explicacion": "Máquina Estacionaria de Albañilería. Realiza mezclas con Precisión (diagrama: Madera). Código: DCAA",
         "imagen": "Mezcladora de concreto.png"
     },
     {
@@ -1008,7 +1006,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Albañilería**. Corta bloques con **Precisión** (diagrama: **Metal**). Código: DCAB",
+        "explicacion": "Equipo Estacionario de Albañilería. Corta bloques con Precisión (diagrama: Metal). Código: DCAB",
         "imagen": "Sierra de cemento estacionaria.png"
     },
     {
@@ -1018,7 +1016,7 @@
         "movilidad": "estacionaria",
         "accion": "precision",
         "material": "multiuso",
-        "explicacion": "Equipo **Estacionario** de **Pintura**. Limpia superficies con **Precisión** mediante arena **Multiuso**. Código: DCAC",
+        "explicacion": "Equipo Estacionario de Pintura. Limpia superficies con Precisión mediante arena Multiuso. Código: DCAC",
         "imagen": "Máquina de arenado.png"
     },
     {
@@ -1028,7 +1026,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "madera",
-        "explicacion": "Máquina **Estacionaria** de **Albañilería**. Aplica **Fuerza** de impacto al suelo (diagrama: **Madera**). Código: DCBA",
+        "explicacion": "Máquina Estacionaria de Albañilería. Aplica Fuerza de impacto al suelo (diagrama: Madera). Código: DCBA",
         "imagen": "Compactadora.png"
     },
     {
@@ -1038,7 +1036,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "metal",
-        "explicacion": "Equipo **Estacionario** de **Albañilería**. Usa **Fuerza** para cortar pavimento (diagrama: **Metal**). Código: DCBB",
+        "explicacion": "Equipo Estacionario de Albañilería. Usa Fuerza para cortar pavimento (diagrama: Metal). Código: DCBB",
         "imagen": "Cortadora de piso industrial.png"
     },
     {
@@ -1048,7 +1046,7 @@
         "movilidad": "estacionaria",
         "accion": "fuerza",
         "material": "multiuso",
-        "explicacion": "Máquina **Estacionaria** de **Albañilería**. Aplica **Fuerza** para pulir grandes áreas **Multiuso**. Código: DCBC",
+        "explicacion": "Máquina Estacionaria de Albañilería. Aplica Fuerza para pulir grandes áreas Multiuso. Código: DCBC",
         "imagen": "Pulidora industrial de piso.png"
     },
     {
@@ -1058,7 +1056,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "madera",
-        "explicacion": "Equipo **Estacionario** de **Albañilería**. Realiza **Medición** topográfica (diagrama: **Madera**). Código: DCCA",
+        "explicacion": "Equipo Estacionario de Albañilería. Realiza Medición topográfica (diagrama: Madera). Código: DCCA",
         "imagen": "Estación de nivelación láser.png"
     },
     {
@@ -1068,7 +1066,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "metal",
-        "explicacion": "Instrumento **Estacionario** de **Albañilería**. Hace **Medición** del subsuelo (diagrama: **Metal**). Código: DCCB",
+        "explicacion": "Instrumento Estacionario de Albañilería. Hace Medición del subsuelo (diagrama: Metal). Código: DCCB",
         "imagen": "Detector geológico profesional.png"
     },
     {
@@ -1078,7 +1076,7 @@
         "movilidad": "estacionaria",
         "accion": "medicion",
         "material": "multiuso",
-        "explicacion": "Laboratorio **Estacionario** de **Albañilería**. Ejecuta **Medición** de resistencia en materiales **Multiuso**. Código: DCCC",
+        "explicacion": "Laboratorio Estacionario de Albañilería. Ejecuta Medición de resistencia en materiales Multiuso. Código: DCCC",
         "imagen": "Banco de pruebas de materiales.png"
     }
 ]
