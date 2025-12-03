@@ -60,9 +60,7 @@ class SistemaExpertoApp:
 
         self.crear_interfaz_principal()
 
-    # MOTOR DE INFERENCIA
     def motor_inferencia(self, uso_input, mov_input, acc_input, mat_input):
-        # MODO DETECTIVE (Imprime en consola lo que busca)
         print(f"BUSCANDO: {uso_input} / {mov_input} / {acc_input} / {mat_input}")
         
         for hecho in self.base_hechos:
@@ -221,11 +219,9 @@ class SistemaExpertoApp:
             ttk.Button(btn_area, text="Inicio", command=self.crear_interfaz_principal).pack(side="left", padx=10)
         
         else:
-            # --- CASO FALLO ---
             ttk.Label(frame, text="Herramienta No Encontrada", style="Header.TLabel", foreground="#c0392b").pack(pady=20)
             
-            # Contexto de lo buscado
-            texto_ctx = f"Buscado: {val_uso} > {val_mov} > {val_acc} > {val_mat}"
+            texto_ctx = f"Camino escogido: {val_uso} > {val_mov} > {val_acc} > {val_mat}"
             ttk.Label(frame, text=texto_ctx, font=("Consolas", 9)).pack(pady=5)
             
             btn_area = ttk.Frame(frame)
@@ -234,7 +230,7 @@ class SistemaExpertoApp:
             # Pre-llenar datos para enseñar al sistema
             datos_nuevos = {"uso": val_uso, "movilidad": val_mov, "accion": val_acc, "material": val_mat}
             
-            ttk.Button(btn_area, text="Enseñar al Sistema (+10 Pts)", 
+            ttk.Button(btn_area, text="Agregar al sistema", 
                        command=lambda: self.abrir_modo_experto(datos_editar=datos_nuevos, es_nuevo=True)).pack(side="left", padx=10)
             ttk.Button(btn_area, text="Inicio", command=self.crear_interfaz_principal).pack(side="left", padx=10)
     def mostrar_imagen(self, parent, nombre_herramienta):
@@ -248,7 +244,7 @@ class SistemaExpertoApp:
             nombre_herramienta + ".png",
             nombre_herramienta + ".jpg",
             nombre_herramienta + ".jpeg",
-            nombre_herramienta.replace(".png", ".jpg") # Si el JSON dice .png pero es .jpg
+            nombre_herramienta.replace(".png", ".jpg")
         ]
         
         ruta_final = None

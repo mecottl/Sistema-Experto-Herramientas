@@ -1,0 +1,20 @@
+{
+        "id": "detector_geo",
+        "nombre": "Detector geológico profesional",
+        "uso": "pintura_albanileria",
+        "movilidad": "estacionaria",
+        "accion": "medicion",
+        "material": "metal",
+        "explicacion": "Estudio de suelos estacionario profesional. Código: DCCB",
+        "imagen": "Detector geológico profesional.png"
+    },
+    {
+        "id": "banco_pruebas_mat",
+        "nombre": "Banco de pruebas de materiales",
+        "uso": "pintura_albanileria",
+        "movilidad": "estacionaria",
+        "accion": "medicion",
+        "material": "multiuso",
+        "explicacion": "Análisis estacionario de resistencia de materiales. Código: DCCC",
+        "imagen": "Banco de pruebas de materiales.png"
+    }
