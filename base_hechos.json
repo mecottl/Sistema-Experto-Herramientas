@@ -1058,25 +1058,5 @@
         "material": "madera",
         "explicacion": "Equipo Estacionario de Albañilería. Realiza Medición topográfica (diagrama: Madera). Código: DCCA",
         "imagen": "Estación de nivelación láser.png"
-    },
-    {
-        "id": "detector_geo",
-        "nombre": "Detector geológico profesional",
-        "uso": "pintura_albanileria",
-        "movilidad": "estacionaria",
-        "accion": "medicion",
-        "material": "metal",
-        "explicacion": "Instrumento Estacionario de Albañilería. Hace Medición del subsuelo (diagrama: Metal). Código: DCCB",
-        "imagen": "Detector geológico profesional.png"
-    },
-    {
-        "id": "banco_pruebas_mat",
-        "nombre": "Banco de pruebas de materiales",
-        "uso": "pintura_albanileria",
-        "movilidad": "estacionaria",
-        "accion": "medicion",
-        "material": "multiuso",
-        "explicacion": "Laboratorio Estacionario de Albañilería. Ejecuta Medición de resistencia en materiales Multiuso. Código: DCCC",
-        "imagen": "Banco de pruebas de materiales.png"
     }
 ]
